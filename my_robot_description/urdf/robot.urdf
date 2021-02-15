@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<robot name="my_robot">
+    <!--first link-->
+    <gazebo reference="link_chassis">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <!--1st link - main leg of the derrick-->
+    <link name="link_arm">
+        <!--  <pose> 0 0 0 0 0 0 </pose> -->
+        <!-- <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial> -->
+        <!-- <visual name="">-->
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.127 0.127 0.1664"/>
+                <!--cylinder radius="3" length="10"/>-->
+            </geometry>
+            <!-- <material name="">
+<color rgba="1.0 0.0 0.0 1.0"/>
+</material> -->
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.127 0.127 0.1664"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Link1 -->
+    <link name="link_chassis">
+        <!-- <pose> 0 0 0 0 0 0 </pose>-->
+        <!--   <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial> -->
+        <!-- <visual name="">-->
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1.17 1.17 4.57"/>
+                <!--cylinder radius="3" length="10"/>-->
+            </geometry>
+            <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1.17 1.17 4.57"/>
+            </geometry>
+        </collision>
+    </link>
+
+
+    <!-- joint attachment point is relative to the parent link “0”. 
+So if the parent is offset 1 m in the z, and you attach the joint to the ‘0’, 
+it still attaches to the center at 1 m since that is the “0” of the parent. -->
+    <joint name="joint1" type="prismatic">
+        <!--axis xyz="0 0 0"/>-->
+        <origin xyz="0.5 0.0 0" rpy="0.0 0.0 0.0"/>
+        <parent link="link_arm"/>
+        <!--if you change the parent, change it in the .rviz file -->
+        <child link="link_chassis"/>
+        <!--limit effort below is only for the prismatic joint-->
+        <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+    </joint>
+
+</robot> 
+
+

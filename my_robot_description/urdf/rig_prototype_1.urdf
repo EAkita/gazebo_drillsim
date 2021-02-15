@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot name="my_robot">
+    <!--first link-->
+    <gazebo reference="link_chassis">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <!--2nd link-->
+    <link name="link_arm">
+        <!--         <pose> 0 0 0 0 0 0 </pose>-->
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--         <visual name="">-->
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 1.0"/>
+                <!--cylinder radius="3" length="10"/>-->
+            </geometry>
+            <!-- <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material> -->
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 1.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Link1 -->
+    <link name="link_chassis">
+        <!--         <pose> 0 0 0 0 0 0 </pose>-->
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--         <visual name="">-->
+        <visual>
+            <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+                <!--cylinder radius="3" length="10"/>-->
+            </geometry>
+            <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint1" type="revolute">
+        <axis xyz="0 0 1"/>
+        <origin xyz="0.5 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="link_arm"/> <!--if you change the parent, change it in the .rviz file -->
+        <child link="link_chassis"/>
+        <!--limit effort below is only for the prismatic joint-->
+        <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+    </joint>
+
+</robot> 
+
+

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find my_robot_description)/urdf/rig_prototype_2.urdf'" />
+    <!--use the below arguments to describe the initial postion of the robot-->
+    <arg name="x" default="0" />
+    <arg name="y" default="0" />
+    <arg name="z" default="0" />
+    <arg name="gui" default="true" />
+    <!--use the below include file tag to spawn your robot; if not used, gazebo hangs-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    </include>
+    <node name="my_robot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args= "-urdf -param robot_description -model my_robot -x $(arg x) -y $(arg y) -z $(arg z)"/>
+</launch>

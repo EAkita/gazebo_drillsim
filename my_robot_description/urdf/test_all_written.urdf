@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<robot name="my_robot">
+    <!--first link-->
+    <gazebo reference="top_drive">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <!--1st link - main leg of the derrick-->
+    <link name="derrick_1">
+        <!--         <pose> 0 0 0 0 0 0 </pose>-->
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--         <visual name="">-->
+        <visual>
+            <origin xyz="0.0 0.0 8.32" rpy="0.0 0.0 0.0"/>
+
+            <!-- try to fix the tf; the derrick touches ground at z = 8.32
+            So offset by 3.3 m  -->
+            <geometry>
+                <box size="0.1 0.1 16.64"/>
+                <!--cylinder radius="3" length="10"/>-->
+            </geometry>
+            <!-- <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material> -->
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 8.32" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 16.64"/>
+            </geometry>
+        </collision>
+    </link>
+
+ <!-- Topdrive link -->
+    <link name="top_drive">
+        <!--         <pose> 0 0 0 0 0 0 </pose>-->
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--         <visual name="">-->
+        <visual>
+            <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1 1 4.0"/>
+                <!--cylinder radius="3" length="10"/>-->
+            </geometry>
+            <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1.0 1.0 4.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+<!--3rd link - #2 leg of the derrick-->
+    <link name="derrick_2">
+        <!--         <pose> 0 0 0 0 0 0 </pose>-->
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--         <visual name="">-->
+        <visual>
+            <origin xyz="1.0 1.0 8.32" rpy="0.0 0.0 0.0"/>
+
+            <!-- try to fix the tf; the derrick touches ground at z = 8.32
+            So offset by 3.3 m  -->
+            <geometry>
+                <box size="0.1 0.1 16.64"/>
+                <!--cylinder radius="3" length="10"/>-->
+            </geometry>
+            <!-- <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material> -->
+        </visual>
+        <collision>
+            <origin xyz="1.0 1.0 8.32" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 16.64"/>
+            </geometry>
+        </collision>
+    </link>
+
+<!--4th link - #3 leg of the derrick-->
+    <link name="derrick_3">
+        <!--         <pose> 0 0 0 0 0 0 </pose>-->
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--         <visual name="">-->
+        <visual>
+            <origin xyz="1.0 0.0 8.32" rpy="0.0 0.0 0.0"/>
+
+            <!-- try to fix the tf; the derrick touches ground at z = 8.32
+            So offset by 3.3 m  -->
+            <geometry>
+                <box size="0.1 0.1 16.64"/>
+                <!--cylinder radius="3" length="10"/>-->
+            </geometry>
+            <!-- <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material> -->
+        </visual>
+        <collision>
+            <origin xyz="1.0 0.0 8.32" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 16.64"/>
+            </geometry>
+        </collision>
+    </link>
+
+   <!--5th link - #4 leg of the derrick-->
+    <link name="derrick_4">
+        <!--         <pose> 0 0 0 0 0 0 </pose>-->
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--         <visual name="">-->
+        <visual>
+            <origin xyz="0.0 1.0 8.32" rpy="0.0 0.0 0.0"/>
+
+            <!-- try to fix the tf; the derrick touches ground at z = 8.32
+            So offset by 3.3 m  -->
+            <geometry>
+                <box size="0.1 0.1 16.64"/>
+                <!--cylinder radius="3" length="10"/>-->
+            </geometry>
+            <!-- <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material> -->
+        </visual>
+        <collision>
+            <origin xyz="0.0 1.0 8.32" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 16.64"/>
+            </geometry>
+        </collision>
+    </link>
+
+<!--6th link - #drillpipe-->
+<link name="drillpipe">
+        <!--         <pose> 0 0 0 0 0 0 </pose>-->
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--         <visual name="">-->
+        <visual>
+            <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <!--box size="1.0 1.0 1.0"/>-->
+                <cylinder radius="0.127" length="9"/>
+            </geometry>
+            <material name="">
+                <color rgba="0.0 0.0 0.0 0.8"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+<!--7th link - #drillbit-->
+<link name="drillbit">
+        <!--         <pose> 0 0 0 0 0 0 </pose>-->
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.1" ixy="0.3" ixz="0.5" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <!--         <visual name="">-->
+        <visual>
+            <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.3 0.3 0.1"/>
+                <!--cylinder radius="0.127" length="9"/>-->
+            </geometry>
+            <material name="">
+                <color rgba="0.0 0.0 0.0 0.8"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint1" type="prismatic">
+        <axis xyz="0 0 1"/>
+        <origin xyz="0.5 0.5 14.64" rpy="0.0 0.0 0.0"/>
+        <!-- x is relative to child link origin-->
+        <parent link="derrick_1"/>
+        <!--if you change the parent, change it in the .rviz file -->
+        <child link="top_drive"/>
+        <!--limit effort below is only for the prismatic joint-->
+        <limit effort="1000.0" lower="-14.64" upper="0" velocity="0.5"/> 
+        <!-- upper limit is 2 m less than 16.64-->
+    </joint>
+
+<joint name="joint2" type="fixed">
+        <axis xyz="0 0 1"/>
+        <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+        <!-- x is relative to child link origin-->
+        <parent link="derrick_1"/>
+        <!--if you change the parent, change it in the .rviz file -->
+        <child link="derrick_2"/>
+        <!--limit effort below is only for the prismatic joint-->
+        <!--limit effort="1000.0" lower="-14.64" upper="0" velocity="0.5"/>--> 
+        <!-- upper limit is 2 m less than 16.64-->
+    </joint>
+
+<joint name="joint3" type="fixed">
+        <axis xyz="0 0 1"/>
+        <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+        <!-- x is relative to child link origin-->
+        <parent link="derrick_1"/>
+        <!--if you change the parent, change it in the .rviz file -->
+        <child link="derrick_3"/>
+        <!--limit effort below is only for the prismatic joint-->
+        <!--limit effort="1000.0" lower="-14.64" upper="0" velocity="0.5"/>--> 
+        <!-- upper limit is 2 m less than 16.64-->
+    </joint>
+
+    <joint name="joint4" type="fixed">
+        <axis xyz="0 0 1"/>
+        <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+        <!-- x is relative to child link origin-->
+        <parent link="derrick_1"/>
+        <!--if you change the parent, change it in the .rviz file -->
+        <child link="derrick_4"/>
+        <!--limit effort below is only for the prismatic joint-->
+        <!--limit effort="1000.0" lower="-14.64" upper="0" velocity="0.5"/>--> 
+        <!-- upper limit is 2 m less than 16.64-->
+    </joint>
+
+    <joint name="joint5" type="continuous">
+        <axis xyz="0 0 1"/>
+        <origin xyz="0 0 -6" rpy="0.0 0.0 0.0"/>
+        <!-- x is relative to child link origin; -2.5 from mid of topdrive-->
+        <parent link="top_drive"/>
+        <!--if you change the parent, change it in the .rviz file -->
+        <child link="drillpipe"/>
+        <!--limit effort below is only for the prismatic joint-->
+        <!--limit effort="1000.0" lower="-14.64" upper="0" velocity="0.5"/>--> 
+        <!-- upper limit is 2 m less than 16.64-->
+    </joint>
+
+    <joint name="joint6" type="fixed">
+        <axis xyz="0 0 1"/>
+        <origin xyz="0 0 -4.5" rpy="0.0 0.0 0.0"/>
+        <!-- x is relative to child link origin; -2.5 from mid of topdrive-->
+        <parent link="drillpipe"/>
+        <!--if you change the parent, change it in the .rviz file -->
+        <child link="drillbit"/>
+        <!--limit effort below is only for the prismatic joint-->
+        <!--limit effort="1000.0" lower="-14.64" upper="0" velocity="0.5"/>--> 
+        <!-- upper limit is 2 m less than 16.64-->
+    </joint>
+</robot> 
+
+

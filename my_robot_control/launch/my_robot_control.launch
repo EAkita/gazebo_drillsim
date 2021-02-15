@@ -1,0 +1,26 @@
+<launch>
+<!-- I added the gazebo spawning to this file; brings up controller and spawn in gazebo together -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find my_robot_description)/urdf/rig_prototype_2.urdf'" />
+  <!--use the below arguments to describe the initial postion of the robot-->
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="z" default="0" />
+  <arg name="gui" default="true" />
+  <!--use the below include file tag to spawn your robot; if not used, gazebo hangs-->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  </include>
+  <node name="my_robot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args= "-urdf -param robot_description -model my_robot -x $(arg x) -y $(arg y) -z $(arg z)"/>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find my_robot_control)/config/my_robot_control.yaml" command="load" />
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/my_robot" respawn="false" output="screen" args="joint_state_controller
+					  joint1_position_controller joint4_position_controller joint15_position_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_states" to="/my_robot/joint_states" />
+  </node>
+
+</launch>

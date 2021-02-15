@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+    <param name="robot_description" default="$(find my_robot_description)/urdf/robot.urdf"/>
+
+</launch>
