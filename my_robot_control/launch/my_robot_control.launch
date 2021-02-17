@@ -23,4 +23,8 @@
     <remap from="/joint_states" to="/my_robot/joint_states" />
   </node>
 
+  <!--portion to launch the rig automation py script-->
+  <node name="rig_talker" pkg="my_rig_control" type="autodriller.py" output="screen"/>
+    <!--node name="talker_node" pkg="hello_world" type="talker" output="screen"/-->
+  
 </launch>
