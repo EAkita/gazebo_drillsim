@@ -478,8 +478,8 @@
     </link>
 
     <joint name="camera_joint" type="fixed">
-        <axis xyz="0 0 0" />
-        <origin xyz="1.1 5.1 4" rpy="0 -0.785 -1.570796327"/>
+        <axis xyz="5 5 20" />
+        <origin xyz="1.1 5.1 4" rpy="0 0.785 1.570796327"/>
         <!-- try to flip this to face the derrick, and put in the same axis as drill pipe-->
         <parent link="derrick_1"/>
         <child link="camera"/>
@@ -492,8 +492,9 @@
             <camera name="head">
                 <horizontal_fov>1.3962634</horizontal_fov>
                 <image>
-                    <width>800</width>
-                    <height>800</height>
+                <!--height, width = 800-->
+                    <width>1000</width>
+                    <height>1000</height>
                     <format>R8G8B8</format>
                 </image>
                 <clip>
